@@ -1,7 +1,7 @@
-var playerone = prompt('Player One: Enter Your Name, you will be Blue');
+var playerone = prompt('Player One: Enter Your Name, you will be Red');
 var player1color = 'rgb(244, 65, 65)';
 
-var playertwo = prompt('Player Two: Enter Your Name, you will be Red');
+var playertwo = prompt('Player Two: Enter Your Name, you will be Blue');
 var player2color = 'rgb(66, 134, 244)';
 
 //grab elements on table
