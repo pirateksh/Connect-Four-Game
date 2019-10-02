@@ -1,2 +1,2 @@
 # Connect-Four-Game
-A simple project made to learn/practise JS and jQuery.
+A nice and simple project made to learn/practise JavaScript and jQuery.
