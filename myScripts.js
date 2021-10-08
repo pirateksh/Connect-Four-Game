@@ -12,6 +12,42 @@ async function startGame(){
   container.style.display="block";
   playerone= prompt('Player One: Enter Your Name, you will be Red');
   playertwo = prompt('Player Two: Enter Your Name, you will be Blue');
+  // Start with Player 1
+
+var currentPlayer=1;
+var currentName=playerone;
+var currentColor=player1color;
+
+$('h3').text(playerone + " it is your turn, pick a column to drop in!");
+
+
+$('.board button').on('click', function(){
+
+	var col = $(this).closest('td').index();
+
+	var bottomAvail = checkBottom(col);
+
+	changeColor(bottomAvail, col, currentColor);
+
+	if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()){
+		$('h1').text(currentName + " You have won!");
+		$('h3').fadeOut('fast');
+		$('h2').fadeOut('fast');
+	}
+
+	currentPlayer = currentPlayer * -1;
+
+	if (currentPlayer === 1){
+		currentName = playerone;
+		$('h3').text(currentName + " it is your turn.");
+		currentColor = player1color;
+	}else {
+		currentName = playertwo;
+		$('h3').text(currentName + " it is your turn.");
+		currentColor = player2color;
+	}
+
+});
 }
 //grab elements on table
 var game_on = true;
@@ -102,39 +138,3 @@ function diagonalWinCheck(){
 }
 
 
-// Start with Player 1
-
-var currentPlayer=1;
-var currentName=playerone;
-var currentColor=player1color;
-
-$('h3').text(playerone + " it is your turn, pick a column to drop in!");
-
-
-$('.board button').on('click', function(){
-
-	var col = $(this).closest('td').index();
-
-	var bottomAvail = checkBottom(col);
-
-	changeColor(bottomAvail, col, currentColor);
-
-	if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()){
-		$('h1').text(currentName + " You have won!");
-		$('h3').fadeOut('fast');
-		$('h2').fadeOut('fast');
-	}
-
-	currentPlayer = currentPlayer * -1;
-
-	if (currentPlayer === 1){
-		currentName = playerone;
-		$('h3').text(currentName + " it is your turn.");
-		currentColor = player1color;
-	}else {
-		currentName = playertwo;
-		$('h3').text(currentName + " it is your turn.");
-		currentColor = player2color;
-	}
-
-});
