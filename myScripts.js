@@ -11,7 +11,11 @@ async function startGame(){
   startBtn.style.display="none";
   container.style.display="block";
   playerone= prompt('Player One: Enter Your Name, you will be Red');
+  if(playerone==="")
+    playerone="player 1"
   playertwo = prompt('Player Two: Enter Your Name, you will be Blue');
+  if(playertwo==="")
+    playertwo="player 2"
   // Start with Player 1
 
 var currentPlayer=1;
