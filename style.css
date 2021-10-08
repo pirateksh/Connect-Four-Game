@@ -29,3 +29,21 @@
 body{
 	background-color: pink;
 }
+#gamepage{
+	display: none;
+}
+
+#start>button{
+	margin:200px 0px;
+	font-size: 32px;
+	padding: 10px 20px;
+	background-color: green;
+	color: white;
+	border: 1px solid blue;
+	border-radius: 30px;
+}
+.footer{
+	width: 100%;
+	position: fixed;
+	bottom:0;
+}
