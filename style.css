@@ -29,26 +29,21 @@
 body{
 	background-color: pink;
 }
-
-/* landing page styling */
-.landingFooter{
-	width: 100%;
-	position: fixed;
-	background-color: magenta;
-	bottom: 0px;
+#gamepage{
+	display: none;
 }
-#start{
-	width: 100%;
 
-	position: fixed;
-	top:45%;
-}
-#start>a{
-	border: .5px solid blue;
-	color: white;
-	border-radius: 30px;
-	padding: 10px 20px;
-	background-color: rgb(53, 145, 1);
-	text-decoration: none;
+#start>button{
+	margin:250px 0px;
 	font-size: 32px;
+	padding: 10px 20px;
+	background-color: green;
+	color: white;
+	border: 1px solid blue;
+	border-radius: 30px;
+}
+.footer{
+	width: 100%;
+	position: fixed;
+	bottom:0;
 }
