@@ -29,3 +29,26 @@
 body{
 	background-color: pink;
 }
+
+/* landing page styling */
+.landingFooter{
+	width: 100%;
+	position: fixed;
+	background-color: magenta;
+	bottom: 0px;
+}
+#start{
+	width: 100%;
+
+	position: fixed;
+	top:45%;
+}
+#start>a{
+	border: .5px solid blue;
+	color: white;
+	border-radius: 30px;
+	padding: 10px 20px;
+	background-color: rgb(53, 145, 1);
+	text-decoration: none;
+	font-size: 32px;
+}
