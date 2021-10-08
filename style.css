@@ -47,3 +47,20 @@ body{
 	position: fixed;
 	bottom:0;
 }
+#nameInput{
+	font-size: 20px;
+	margin:180px 0px;
+	display: none;
+}
+#nameInput>button{
+	padding:5px 20px;
+	background-color: green;
+	color: white;
+	border: 1px solid blue;
+	border-radius: 30px;
+}
+input{
+	color:white;
+	border-radius: 2px solid blue;
+	background-color: rgb(48, 53, 53);
+}
