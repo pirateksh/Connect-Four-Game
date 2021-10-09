@@ -2,15 +2,12 @@
 var playerone,playertwo;
 var player1color = 'rgb(244, 65, 65)';
 var player2color = 'rgb(66, 134, 244)';
-var player1name, player2name
 
 const startBtn= document.getElementById("start");
 const nameInput= document.getElementById('nameInput')
 async function inputs(){
   startBtn.style.display="none";
   nameInput.style.display="block";
-  player1name=await document.getElementById("player1name")
-  player2name= await document.getElementById("player2name")
 }
 function Close(){
   nameInput.style.display="none";
@@ -31,15 +28,13 @@ async function namesInput(){
     playerone="player 1"
   if(playertwo==="" || playertwo==null)
     playertwo="player 2"
-  player1name.innerText=playerone
-  player2name.innerText=playertwo
   // Start with Player 1
 
 var currentPlayer=1;
 var currentName=playerone;
 var currentColor=player1color;
 
-//$('h3').text(playerone + " it is your turn, pick a column to drop in!");
+$('h3').text(playerone + " it is your turn, pick a column to drop in!");
 
 
 $('.board button').on('click', function(){
@@ -60,13 +55,11 @@ $('.board button').on('click', function(){
 
 	if (currentPlayer === 1){
 		currentName = playerone;
-		player1name.style.backgroundColor="chartreuse"
-    player2name.style.backgroundColor="gray"
+		$('h3').text(currentName + " it is your turn.");
 		currentColor = player1color;
 	}else {
 		currentName = playertwo;
-    player2name.style.backgroundColor="chartreuse"
-    player1name.style.backgroundColor="gray"
+    $('h3').text(currentName + " it is your turn.");
 		currentColor = player2color;
 	}
 
