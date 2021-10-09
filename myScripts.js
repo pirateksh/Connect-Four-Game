@@ -152,5 +152,25 @@ function diagonalWinCheck(){
     }
   }
 }
+for (const row of rows) {
+  for (const cell of row) {
+    cell.addEventListener("mouseover", handleCellMouseOver);
+    cell.addEventListener("mouseout", handleCellMouseOut);
+    cell.addEventListener("click", handleCellClick);
+  }
+}
 
+resetButton.addEventListener("click", () => {
+  for (const row of rows) {
+    for (const cell of row) {
+      cell.classList.remove("red");
+      cell.classList.remove("green");
+      cell.classList.remove("win");
+    }
+  }
 
+  gameIsLive = true;
+  greenIsNext = true;
+  statusSpan.textContent = "";
+  playerTurn.textContent = `${firstPlayer}'s turn`;
+});
