@@ -3,18 +3,30 @@ var playerone,playertwo;
 var player1color = 'rgb(244, 65, 65)';
 var player2color = 'rgb(66, 134, 244)';
 
-async function startGame(){
+const startBtn= document.getElementById("start");
+const nameInput= document.getElementById('nameInput')
+async function inputs(){
+  startBtn.style.display="none";
+  nameInput.style.display="block";
+}
+function Close(){
+  nameInput.style.display="none";
+  startBtn.style.display="block";
+}
+async function namesInput(){
+  const nameInput=await document.getElementById('nameInput')
+  nameInput.style.display="none";
   const footer=await document.querySelectorAll('.footer')[0];
   footer.style.position="unset";
-  const startBtn=await document.getElementById("start");
   const container= await document.getElementById("gamepage");
-  startBtn.style.display="none";
   container.style.display="block";
-  playerone= prompt('Player One: Enter Your Name, you will be Red');
-  if(playerone==="")
+  const plr1= await document.getElementById("player1")
+  playerone=plr1.value;
+  const plr2= await document.getElementById("player2")
+  playertwo=plr2.value;
+  if(playerone=="" || playerone==null)
     playerone="player 1"
-  playertwo = prompt('Player Two: Enter Your Name, you will be Blue');
-  if(playertwo==="")
+  if(playertwo==="" || playertwo==null)
     playertwo="player 2"
   // Start with Player 1
 
@@ -47,7 +59,7 @@ $('.board button').on('click', function(){
 		currentColor = player1color;
 	}else {
 		currentName = playertwo;
-		$('h3').text(currentName + " it is your turn.");
+    $('h3').text(currentName + " it is your turn.");
 		currentColor = player2color;
 	}
 
