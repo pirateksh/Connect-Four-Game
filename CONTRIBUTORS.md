@@ -6,4 +6,4 @@ Add your name in the given format.
 * [Kajal Shahi](https://contrihub21.herokuapp.com/profile/user/shahikaju7/)
 * [Divyanshi Agrawal](https://contrihub21.herokuapp.com/profile/user/Divyanshi070700/)
 
-* [Dharmednra](https://github.com/ProgrammingPirates)
+* [Dharmednra](https://contrihub21.herokuapp.com/profile/user/ProgrammingPirates/)
