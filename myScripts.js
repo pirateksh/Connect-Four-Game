@@ -35,7 +35,7 @@ var currentName=playerone;
 var currentColor=player1color;
 
 $('.plyr1').text(playerone + ", it is your turn!").css('color','red');
-$('.plyr2').text(playertwo + ", it is your turn!").css('color','blue');
+$('.plyr2').text(playertwo).css('color','blue');
 $('.plyr1').css('font-weight','bolder');
 $('.plyr2').css('font-weight','lighter');
 
@@ -60,13 +60,13 @@ $('.board button').on('click', function(){
 		currentName = playerone;
     $('.plyr1').text(currentName + ", it is your turn!").css('color','red');
     $('.plyr1').css('font-weight','bolder');
-    $('.plyr2').css('font-weight','lighter');
+    $('.plyr2').text(playertwo).css('font-weight','lighter');
 		currentColor = player1color;
 	}else {
 		currentName = playertwo;
     $('.plyr2').text(currentName + ", it is your turn!").css('color','blue');
     $('.plyr2').css('font-weight','bolder');
-    $('.plyr1').css('font-weight','lighter');
+    $('.plyr1').text(playerone).css('font-weight','lighter');
 		currentColor = player2color;
 	}
 
