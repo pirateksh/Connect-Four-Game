@@ -105,6 +105,23 @@ input{
 	font-weight: bold;
   }
 
-  .close:active, .close:hover{
-	  cursor:pointer;
-  }
+.close:active, .close:hover{
+  cursor:pointer;
+}
+
+#timer-wrap{
+  background-color: red;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.centered {
+  position: absolute;
+  top: 30%;
+  left: 45%;
+}
