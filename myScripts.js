@@ -3,8 +3,14 @@ var playerone,playertwo;
 var player1color = 'rgb(244, 65, 65)';
 var player2color = 'rgb(66, 134, 244)';
 
+
 const startBtn= document.getElementById("start");
 const nameInput= document.getElementById('nameInput')
+let playtTime = document.getElementById("timeforplay")
+
+var timer;
+var timeLeft;
+
 async function inputs(){
   startBtn.style.display="none";
   nameInput.style.display="block";
@@ -13,6 +19,32 @@ function Close(){
   nameInput.style.display="none";
   startBtn.style.display="block";
 }
+
+var currentPlayer=1;
+var currentName=playerone;
+var currentColor=player1color;
+
+// Used to make changes when a move is made or timer runs out
+function makeMove(){
+    currentPlayer = currentPlayer * -1;
+    if (currentPlayer === 1){
+      currentName = playerone;
+      $('.plyr1').text(currentName + ", it is your turn!").css('color','red');
+      $('#timer-wrap').css('background-color', 'red');
+      $('.plyr1').css('font-weight','bolder');
+      $('.plyr2').text(playertwo).css('font-weight','lighter');
+      currentColor = player1color;
+    }
+    else {
+      currentName = playertwo;
+      $('.plyr2').text(currentName + ", it is your turn!").css('color','blue');
+      $('#timer-wrap').css('background-color', 'blue');
+      $('.plyr2').css('font-weight','bolder');
+      $('.plyr1').text(playerone).css('font-weight','lighter');
+      currentColor = player2color;
+    }
+}
+
 async function namesInput(){
   const nameInput=await document.getElementById('nameInput')
   nameInput.style.display="none";
@@ -30,41 +62,32 @@ async function namesInput(){
     playertwo="player 2"
   // Start with Player 1
 
-var currentPlayer=1;
-var currentName=playerone;
-var currentColor=player1color;
+  $('.plyr1').text(playerone + ", it is your turn!").css('color','red');
+  $('.plyr2').text(playertwo).css('color','blue');
+  $('.plyr1').css('font-weight','bolder');
+  $('.plyr2').css('font-weight','lighter');
 
-$('h3').text(playerone + " it is your turn, pick a column to drop in!");
 
+  $('.board button').on('click', function(){
 
-$('.board button').on('click', function(){
+  	var col = $(this).closest('td').index();
 
-	var col = $(this).closest('td').index();
+  	var bottomAvail = checkBottom(col);
 
-	var bottomAvail = checkBottom(col);
+  	changeColor(bottomAvail, col, currentColor);
 
-	changeColor(bottomAvail, col, currentColor);
+  	if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()){
+  		$('h1').text(currentName + " You have won!");
+  		$('h3').fadeOut('fast');
+  		$('h2').fadeOut('fast');
+      clearInterval(timer);
+      document.getElementById("timer-wrap").style.display = "none";
+  	}
 
-	if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()){
-		$('h1').text(currentName + " You have won!");
-		$('h3').fadeOut('fast');
-		$('h2').fadeOut('fast');
-	}
-
-	currentPlayer = currentPlayer * -1;
-
-	if (currentPlayer === 1){
-		currentName = playerone;
-		$('h3').text(currentName + " it is your turn.");
-		currentColor = player1color;
-	}else {
-		currentName = playertwo;
-    $('h3').text(currentName + " it is your turn.");
-		currentColor = player2color;
-	}
-
-});
+  	makeMove();
+  });
 }
+
 //grab elements on table
 var game_on = true;
 var table = $('table tr');
@@ -153,4 +176,32 @@ function diagonalWinCheck(){
   }
 }
 
+// Skips the current player if the timer runs out
+function skipCurrentPlayer() {
+  // this.currentPlayer = this.currentPlayer * -1;
+  console.log(this.currentPlayer);
+  makeMove();
+  startTimer();
+}
 
+//Updates timer on the UI
+function updateTimer() {
+  timeLeft = timeLeft - 1;
+  if(timeLeft >= 0)
+    $('#timer').html(timeLeft);
+  else {
+    skipCurrentPlayer();
+  }
+}
+
+// Starts the timer when the move is made
+function startTimer() {
+  // timeLeft is assigned the value given by the user 
+  if(playtTime.value == ""){
+    timeLeft = 31;
+  }
+  else timeLeft = playtTime.value;
+  clearInterval(timer);
+  timer = setInterval(updateTimer, 1000);
+  updateTimer();
+}
