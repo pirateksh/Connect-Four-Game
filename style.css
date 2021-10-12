@@ -125,3 +125,13 @@ input{
   top: 30%;
   left: 45%;
 }
+/* to remove the arrow signs in the input type number field */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

@@ -3,11 +3,14 @@ var playerone,playertwo;
 var player1color = 'rgb(244, 65, 65)';
 var player2color = 'rgb(66, 134, 244)';
 
-var timer;
-var timeLeft;
 
 const startBtn= document.getElementById("start");
 const nameInput= document.getElementById('nameInput')
+let playtTime = document.getElementById("timeforplay")
+
+var timer;
+var timeLeft;
+
 async function inputs(){
   startBtn.style.display="none";
   nameInput.style.display="block";
@@ -193,7 +196,8 @@ function updateTimer() {
 
 // Starts the timer when the move is made
 function startTimer() {
-  timeLeft = 31;
+  // timeLeft is assigned the value given by the user 
+  timeLeft = playtTime.value;
   clearInterval(timer);
   timer = setInterval(updateTimer, 1000);
   updateTimer();
