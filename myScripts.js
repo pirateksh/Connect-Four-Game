@@ -197,7 +197,10 @@ function updateTimer() {
 // Starts the timer when the move is made
 function startTimer() {
   // timeLeft is assigned the value given by the user 
-  timeLeft = playtTime.value;
+  if(playtTime.value == ""){
+    timeLeft = 31;
+  }
+  else timeLeft = playtTime.value;
   clearInterval(timer);
   timer = setInterval(updateTimer, 1000);
   updateTimer();
