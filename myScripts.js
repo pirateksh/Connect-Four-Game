@@ -1,4 +1,4 @@
-
+//TypeScript is more preferred over Javascript now as it defines the type!
 var playerone,playertwo;
 var player1color = 'rgb(244, 65, 65)';
 var player2color = 'rgb(66, 134, 244)';
@@ -141,7 +141,7 @@ function horizontalWinCheck() {
     }
   }
 }
-
+//While deployment the console.log statments ought to be removed!
 
 // Check for vertical wins
 function verticalWinCheck() {
