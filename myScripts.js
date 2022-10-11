@@ -1,15 +1,16 @@
-
-var playerone,playertwo;
-var player1color = 'rgb(244, 65, 65)';
-var player2color = 'rgb(66, 134, 244)';
+//TypeScript is more preferred over Javascript now as it defines the type!
+//let is preferred than var. So use let more!
+let playerone,playertwo;
+let player1color = 'rgb(244, 65, 65)';
+let player2color = 'rgb(66, 134, 244)';
 
 
 const startBtn= document.getElementById("start");
 const nameInput= document.getElementById('nameInput')
 let playtTime = document.getElementById("timeforplay")
 
-var timer;
-var timeLeft;
+let timer;
+let timeLeft;
 
 async function inputs(){
   startBtn.style.display="none";
@@ -141,7 +142,7 @@ function horizontalWinCheck() {
     }
   }
 }
-
+//While deployment the console.log statments ought to be removed!
 
 // Check for vertical wins
 function verticalWinCheck() {
