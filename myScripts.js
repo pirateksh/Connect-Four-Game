@@ -141,7 +141,7 @@ function horizontalWinCheck() {
     }
   }
 }
-
+//While deployment the console.log statments ought to be removed!
 
 // Check for vertical wins
 function verticalWinCheck() {
