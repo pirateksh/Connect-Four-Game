@@ -1,7 +1,7 @@
 // We prefer to use let keyword instead of var!
-var playerone,playertwo;
-var player1color = 'rgb(244, 65, 65)';
-var player2color = 'rgb(66, 134, 244)';
+let playerone,playertwo;
+let player1color = 'rgb(244, 65, 65)';
+let player2color = 'rgb(66, 134, 244)';
 
 
 const startBtn= document.getElementById("start");
