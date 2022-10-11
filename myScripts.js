@@ -1,4 +1,4 @@
-
+// We prefer to use let keyword instead of var!
 var playerone,playertwo;
 var player1color = 'rgb(244, 65, 65)';
 var player2color = 'rgb(66, 134, 244)';
