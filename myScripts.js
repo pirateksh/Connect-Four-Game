@@ -44,7 +44,7 @@ function makeMove(){
       currentColor = player2color;
     }
 }
-
+//Async Await Function used!
 async function namesInput(){
   const nameInput=await document.getElementById('nameInput')
   nameInput.style.display="none";
